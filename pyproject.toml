@@ -1,20 +1,20 @@
-[tool.poetry]
+[project]
 name = "kle-fetch"
 version = "0.1.0"
-description = ""
-authors = ["Matteo Campinoti <matteo.campinoti94@gmail.com>"]
-license = "GPL-3"
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-xmltodict = "^0.13.0"
-
-
-[tool.poetry.scripts]
-kle-fetch = "kle_fetch.__main__:__main__"
-
+requires-python = ">=3.14"
+dependencies = [
+    "mypy>=1.18.2",
+    "pylsp-mypy>=0.7.0",
+    "ruff>=0.14.6",
+    "xmltodict>=1.0.2",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pylsp-rope>=0.1.17",
+    "python-lsp-ruff>=2.3.0",
+]
