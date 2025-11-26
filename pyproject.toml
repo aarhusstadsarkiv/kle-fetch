@@ -4,6 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
     "mypy>=1.18.2",
+    "pydantic>=2.12.4",
     "pylsp-mypy>=0.7.0",
     "ruff>=0.14.6",
     "xmltodict>=1.0.2",
