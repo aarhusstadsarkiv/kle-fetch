@@ -1,7 +1,7 @@
 [project]
 name = "kle-fetch"
 version = "0.1.0"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "mypy>=1.18.2",
     "pydantic>=2.12.4",
