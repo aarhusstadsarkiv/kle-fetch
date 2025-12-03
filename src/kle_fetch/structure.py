@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import typing as t
 
 from functools import lru_cache
@@ -50,6 +52,16 @@ class KLE(BaseModel):
             or txt in self.gruppe.txt.lower()
             or txt in self.emne.txt.lower()
         )
+
+    def flatten(self) -> t.Dict[str, str]:
+        flattened = {"journalnr": self.journalnr}
+
+        for model_field in KLE.model_fields.keys():
+            if isinstance(model_field, KLEPart):
+                dumped_model: KLEPart = getattr(self, model_field).model_dump(mode="json")
+                keys_fixed_model_field = {f"{model_field}{key}": value for key, value in dumped_model.items()}
+                flattened.update(keys_fixed_model_field)
+        return flattened
 
 
 @lru_cache
